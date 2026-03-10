@@ -508,8 +508,17 @@ input::-webkit-calendar-picker-indicator{filter:invert(1) sepia(1) saturate(3);o
 
 <script>
 // ── PERSISTENTE OPSLAG VIA LOCALSTORAGE ───────────────────────────────────
-const SK = 'rasputin_bookings_v1';
-const DK = 'rasputin_docs_v1';
+
+// ════════════════════════════════════════════════════════════════════════════
+// ⚙️  CONFIG — VUL HIER JOUW JSONBIN GEGEVENS IN (zie instructies)
+// ════════════════════════════════════════════════════════════════════════════
+const CONFIG = {
+  BIN_ID:  '69afe86aaeb53c760cdf15e3',   // bv: 6634f1e0acd3cb34a83f2d1a
+  API_KEY: '$2a$10$Ty/6LrXUUvtMhS8FrQbOJuzFt24mx6IeD6YYGULbF1zar.bNyEYoa',  // bv: $2a$10$abc123...
+};
+// ════════════════════════════════════════════════════════════════════════════
+
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${CONFIG.BIN_ID}`;
 
 const DEFAULT_DOCS = [
   {id:1,name:'Dhr. De Vries',vak:'Nederlands',color:'var(--g)'},
@@ -520,52 +529,93 @@ const DEFAULT_DOCS = [
   {id:6,name:'Mevr. Mulder',vak:'CKV',color:'var(--g)'}
 ];
 
-// Robuuste opslag: localStorage met in-memory fallback
+// In-memory cache
 const MEM = { bookings: null, docs: null };
 
-function lsGet(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
-function lsSet(key,val){ try{ localStorage.setItem(key,val); return true; }catch(e){ return false; } }
-
-const getAll = () => {
-  if(MEM.bookings !== null) return MEM.bookings;
-  try { MEM.bookings = JSON.parse(lsGet(SK)||'[]'); } catch(e){ MEM.bookings = []; }
-  return MEM.bookings;
-};
-const saveAll = a => {
-  MEM.bookings = a;
-  lsSet(SK, JSON.stringify(a));
-};
-const saveOne = b => {
-  const a = getAll(); a.push(b);
-  saveAll(a);
-};
-const getDocs = () => {
-  if(MEM.docs !== null) return MEM.docs;
-  try {
-    const raw = lsGet(DK);
-    MEM.docs = raw ? JSON.parse(raw) : null;
-    if(!MEM.docs){ MEM.docs = JSON.parse(JSON.stringify(DEFAULT_DOCS)); lsSet(DK, JSON.stringify(MEM.docs)); }
-  } catch(e){ MEM.docs = JSON.parse(JSON.stringify(DEFAULT_DOCS)); }
-  return MEM.docs;
-};
-const saveDocs = d => {
-  MEM.docs = d;
-  lsSet(DK, JSON.stringify(d));
-};
+const getAll   = () => MEM.bookings || [];
+const getDocs  = () => MEM.docs     || DEFAULT_DOCS;
 const isBooked = (d,t) => getAll().some(b => b.date===d && b.time===t);
 
-// ── STORAGE TEST ──────────────────────────────────────────────────────────
-(function(){
-  const testKey = '__rasputin_test__';
+// ── JSONBin lezen ─────────────────────────────────────────────────────────
+async function binRead(){
+  const r = await fetch(JSONBIN_URL + '/latest', {
+    headers: { 'X-Master-Key': CONFIG.API_KEY }
+  });
+  if(!r.ok) throw new Error('JSONBin read: ' + r.status);
+  const d = await r.json();
+  return d.record;
+}
+
+// ── JSONBin schrijven ─────────────────────────────────────────────────────
+async function binWrite(data){
+  const r = await fetch(JSONBIN_URL, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Master-Key': CONFIG.API_KEY
+    },
+    body: JSON.stringify(data)
+  });
+  if(!r.ok) throw new Error('JSONBin write: ' + r.status);
+}
+
+// ── Data ophalen uit bin en in cache zetten ───────────────────────────────
+async function loadAllData(){
+  showLoadingBanner(true);
   try {
-    localStorage.setItem(testKey, '1');
-    localStorage.removeItem(testKey);
-    console.log('%c✅ localStorage werkt — data wordt opgeslagen', 'color:#1DB954;font-weight:bold;font-size:13px');
+    if(CONFIG.BIN_ID === 'JOUW_BIN_ID_HIER') throw new Error('Config niet ingevuld');
+    const rec = await binRead();
+    MEM.bookings = rec.bookings || [];
+    MEM.docs     = rec.docs     || JSON.parse(JSON.stringify(DEFAULT_DOCS));
+    showLoadingBanner(false);
+    updateHStats(); renderTodayTL(); updateCD(); renderDocs(); populateSel('colF');
+    console.log('%c✅ Data geladen vanuit JSONBin', 'color:#1DB954;font-weight:bold;font-size:13px');
   } catch(e) {
-    console.warn('%c⚠️ localStorage geblokkeerd! Data wordt NIET opgeslagen na refresh.', 'color:#ff0044;font-weight:bold;font-size:13px');
-    console.warn('Open het bestand via een lokale server of gebruik Chrome/Firefox zonder restricties.');
+    console.error('JSONBin fout:', e);
+    MEM.bookings = [];
+    MEM.docs = JSON.parse(JSON.stringify(DEFAULT_DOCS));
+    showLoadingBanner(false, true);
+    updateHStats(); renderTodayTL(); updateCD(); renderDocs(); populateSel('colF');
   }
-})();
+}
+
+// ── Volledige state opslaan naar bin ─────────────────────────────────────
+async function persist(){
+  if(CONFIG.BIN_ID === 'JOUW_BIN_ID_HIER') return;
+  try {
+    await binWrite({ bookings: MEM.bookings || [], docs: MEM.docs || DEFAULT_DOCS });
+  } catch(e){ console.error('Opslaan mislukt:', e); toast('⚠ OPSLAAN MISLUKT'); }
+}
+
+// ── CRUD wrappers ─────────────────────────────────────────────────────────
+const saveAll  = async (arr) => { MEM.bookings = arr; await persist(); };
+const saveOne  = async (b)   => { MEM.bookings = [...getAll(), b]; await persist(); };
+const saveDocs = async (d)   => { MEM.docs = d; await persist(); };
+
+function showLoadingBanner(loading, error=false){
+  let el = document.getElementById('sheetsBanner');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'sheetsBanner';
+    el.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;text-align:center;padding:8px;font-family:Share Tech Mono,monospace;font-size:10px;letter-spacing:3px;transition:all .4s;';
+    document.body.appendChild(el);
+  }
+  if(loading){
+    el.style.background = 'rgba(0,255,231,.08)';
+    el.style.color = 'rgba(0,255,231,.7)';
+    el.style.borderTop = '1px solid rgba(0,255,231,.15)';
+    el.textContent = '// DATA LADEN VAN GOOGLE SHEETS...';
+    el.style.display = 'block';
+  } else if(error){
+    el.style.background = 'rgba(255,0,68,.08)';
+    el.style.color = 'rgba(255,0,68,.7)';
+    el.style.borderTop = '1px solid rgba(255,0,68,.2)';
+    el.textContent = '⚠ SHEETS NIET BEREIKBAAR — CHECK CONFIG';
+    setTimeout(()=>el.style.display='none', 5000);
+  } else {
+    el.style.display = 'none';
+  }
+}
 
 // ── HELPERS ───────────────────────────────────────────────────────────────
 const todayS = new Date().toISOString().split('T')[0];
@@ -737,8 +787,8 @@ function doSubmit(){
   setTimeout(()=>finishBook(bk),800);
 }
 
-function finishBook(b){
-  saveOne(b);
+async function finishBook(b){
+  await saveOne(b);
   document.getElementById('ldBar').classList.remove('on');
   document.getElementById('bkForm').style.display='none';
   document.getElementById('sucEl').classList.add('on');
@@ -989,15 +1039,15 @@ function cancelDelBooking(id){
   if(btn) btn.innerHTML=`<button class="bk-del" onclick="askDelBooking(${id})">✕</button>`;
 }
 
-function confirmDelBooking(id){
+async function confirmDelBooking(id){
   pendingDelBooking = null;
-  saveAll(getAll().filter(b => String(b.id) !== String(id)));
+  await saveAll(getAll().filter(b => String(b.id) !== String(id)));
   renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('AFSPRAAK VERWIJDERD');
 }
 
 function delBooking(id){ confirmDelBooking(id); } // fallback
 
-function adminClearAll(){
+async function adminClearAll(){
   // Toon inline bevestiging in de knop zelf
   const btn = document.querySelector('[onclick="adminClearAll()"]');
   if(btn && btn.dataset.confirming !== 'yes'){
@@ -1010,16 +1060,16 @@ function adminClearAll(){
     return;
   }
   if(btn){ btn.dataset.confirming=''; }
-  saveAll([]); renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('ALLE AFSPRAKEN GEWIST');
+  await saveAll([]); renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('ALLE AFSPRAKEN GEWIST');
 }
-function adminAddBooking(){
+async function adminAddBooking(){
   const date=document.getElementById('adF2').value,time=document.getElementById('atF2').value,
         name=document.getElementById('anF2').value.trim(),email=document.getElementById('aeF2').value.trim(),
         collega=document.getElementById('acF2').value,note=document.getElementById('anoF2').value.trim();
   const errEl=document.getElementById('adErr2'); errEl.textContent='';
   if(!date||!time||!name){errEl.textContent='DATUM, TIJD EN NAAM ZIJN VERPLICHT';return;}
   if(isBooked(date,time)){errEl.textContent='DIT TIJDSTIP IS AL BEZET';return;}
-  saveOne({date,time,name,email,collega,note,id:Date.now()});
+  await saveOne({date,time,name,email,collega,note,id:Date.now()});
   ['adF2','anF2','aeF2','anoF2'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('atF2').value='09:00';
   renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('AFSPRAAK TOEGEVOEGD');
@@ -1062,15 +1112,15 @@ function cancelDelDoc(id){
   if(btn) btn.innerHTML=`<button class="bk-del" onclick="askDelDoc(${id})">✕ WISSEN</button>`;
 }
 
-function confirmDelDoc(id){
+async function confirmDelDoc(id){
   pendingDelDoc = null;
-  saveDocs(getDocs().filter(d => String(d.id) !== String(id)));
+  await saveDocs(getDocs().filter(d => String(d.id) !== String(id)));
   renderAdminDocs(); renderDocs(); updateAdminStats();
   populateSel('colF'); populateSel('acF2');
   toast('DOCENT VERWIJDERD');
 }
 
-function adminAddDoc(){
+async function adminAddDoc(){
   const name=document.getElementById('dnF').value.trim(),
         vak=document.getElementById('dvF').value.trim(),
         color=document.getElementById('dbF').value;
@@ -1078,7 +1128,7 @@ function adminAddDoc(){
   if(!name){errEl.textContent='NAAM IS VERPLICHT';return;}
   const docs=getDocs();
   docs.push({id:Date.now(),name,vak:vak||'-',color});
-  saveDocs(docs);
+  await saveDocs(docs);
   ['dnF','dvF'].forEach(id=>document.getElementById(id).value='');
   renderAdminDocs(); updateAdminStats(); populateSel('colF'); populateSel('acF2'); toast('DOCENT TOEGEVOEGD');
 }
@@ -1104,6 +1154,16 @@ function boom(){
 populateSel('colF');
 renderFAQ();
 renderDocs();
+
+// ── START: data laden vanuit Google Sheets ────────────────────────────────
+// ── Data laden bij opstarten ──────────────────────────────────────────────
+if(CONFIG.BIN_ID !== 'JOUW_BIN_ID_HIER'){
+  loadAllData();
+} else {
+  MEM.bookings = [];
+  MEM.docs = JSON.parse(JSON.stringify(DEFAULT_DOCS));
+  console.warn('%c⚠️ Vul CONFIG.BIN_ID en CONFIG.API_KEY in — zie SETUP_INSTRUCTIES.md', 'color:#ffd700;font-size:13px');
+}
 </script>
 </body>
 </html>
