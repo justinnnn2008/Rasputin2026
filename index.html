@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RASPUTIN — Opname HQ 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+html,body{background:#02000a!important;}
+:root{--r:#ff0044;--g:#ffd700;--c:#00ffe7;--p:#c84bff;--w:#60a5fa;--gr:#1DB954;--dk:#02000a;--glass:rgba(255,255,255,.042);--gb:rgba(255,255,255,.085);--gg:0 0 24px rgba(255,215,0,.5),0 0 80px rgba(255,215,0,.1);--rg:0 0 20px rgba(255,0,68,.5);--cg:0 0 16px rgba(0,255,231,.4);--pg:0 0 16px rgba(196,75,255,.4);--wg:0 0 14px rgba(96,165,250,.35);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Rajdhani',sans-serif;background:var(--dk);color:#e8d5b0;min-height:100vh;overflow-x:hidden;}
+#aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.al{position:absolute;border-radius:50%;filter:blur(120px);opacity:.22;mix-blend-mode:screen;}
+.a1{background:radial-gradient(ellipse,rgba(255,0,68,.95),transparent 65%);width:90%;height:80%;top:-30%;left:-25%;animation:am1 17s ease-in-out infinite alternate;}
+.a2{background:radial-gradient(ellipse,rgba(255,215,0,.65),transparent 65%);width:80%;height:75%;bottom:-25%;right:-20%;animation:am2 21s ease-in-out infinite alternate;}
+.a3{background:radial-gradient(ellipse,rgba(0,255,231,.32),transparent 65%);width:70%;height:65%;top:20%;left:8%;animation:am3 13s ease-in-out infinite alternate;}
+.a4{background:radial-gradient(ellipse,rgba(196,75,255,.28),transparent 65%);width:65%;height:60%;top:5%;right:5%;animation:am4 23s ease-in-out infinite alternate;}
+@keyframes am1{to{transform:translate(8%,5%) scale(1.15);}}
+@keyframes am2{to{transform:translate(-6%,-8%) scale(1.12);}}
+@keyframes am3{to{transform:translate(5%,-6%) scale(1.1) rotate(6deg);}}
+@keyframes am4{to{transform:translate(-5%,6%) scale(1.08);}}
+.gridbg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,215,0,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,215,0,.016) 1px,transparent 1px);background-size:64px 64px;z-index:1;animation:gm 24s linear infinite;pointer-events:none;}
+@keyframes gm{to{background-position:0 64px;}}
+.scan{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.025) 3px,rgba(0,0,0,.025) 4px);pointer-events:none;z-index:9000;}
+#ticker{position:fixed;top:0;left:0;right:0;height:28px;background:rgba(255,0,68,.04);border-bottom:1px solid rgba(255,0,68,.1);display:flex;align-items:center;overflow:hidden;z-index:200;}
+#tkT{display:flex;white-space:nowrap;animation:tickscroll 70s linear infinite;}
+.tw{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(255,0,68,.55);padding:0 28px;}
+.tg{color:rgba(255,215,0,.28);padding:0 6px;}
+@keyframes tickscroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+#nav{position:fixed;top:28px;left:0;right:0;z-index:300;display:flex;justify-content:center;padding:0 12px;}
+.nav-inner{display:flex;background:rgba(2,0,10,.9);border:1px solid rgba(255,215,0,.09);backdrop-filter:blur(24px);border-radius:3px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.6);flex-wrap:wrap;}
+.nb{padding:10px 15px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(255,215,0,.34);cursor:pointer;transition:all .22s;position:relative;border-right:1px solid rgba(255,255,255,.04);white-space:nowrap;user-select:none;display:flex;align-items:center;gap:5px;}
+.nb:last-child{border-right:none;}
+.nb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);transform:scaleX(0);transition:transform .28s ease;}
+.nb:hover{color:rgba(255,215,0,.68);background:rgba(255,215,0,.025);}
+.nb.on{color:var(--g);text-shadow:var(--gg);background:rgba(255,215,0,.04);}
+.nb.on::after{transform:scaleX(1);}
+.nb.adm-nb::after{background:linear-gradient(90deg,transparent,var(--p),transparent);}
+.nb.adm-nb.on{color:var(--p);text-shadow:var(--pg);}
+@media(max-width:720px){.nbl{display:none;}.nb{padding:10px 11px;}}
+.wrap{position:relative;z-index:2;max-width:1020px;margin:0 auto;padding:106px 22px 90px;}
+.page{display:none;}.page.on{display:block;}
+.ph{text-align:center;margin-bottom:46px;}
+.ph-eye{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--c);border:1px solid rgba(0,255,231,.16);padding:5px 16px;margin-bottom:15px;text-shadow:var(--cg);background:rgba(0,255,231,.02);}
+.ph-eye::before,.ph-eye::after{content:'//';color:rgba(0,255,231,.22);margin:0 8px;}
+.ph-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,104px);color:var(--g);text-shadow:var(--gg);letter-spacing:3px;line-height:.88;}
+.ph-s{font-family:'Orbitron',sans-serif;font-size:clamp(8px,1.3vw,11px);letter-spacing:8px;color:var(--r);text-shadow:var(--rg);margin:10px 0 26px;}
+.ph-rule{height:1px;background:linear-gradient(90deg,transparent,var(--g) 25%,var(--r) 75%,transparent);box-shadow:0 0 14px rgba(255,215,0,.22);position:relative;}
+.ph-rule::after{content:'✦';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--g);font-size:12px;text-shadow:var(--gg);background:var(--dk);padding:0 14px;}
+.panel{background:var(--glass);border:1px solid var(--gb);backdrop-filter:blur(28px);border-radius:4px;padding:28px 32px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 18px 55px rgba(0,0,0,.42);transition:border-color .3s;}
+.panel::before{content:'';position:absolute;top:0;left:0;width:200%;height:1.5px;background:linear-gradient(90deg,transparent,var(--r),var(--g),var(--c),var(--p),transparent);animation:sweep 5s linear infinite;}
+@keyframes sweep{0%{transform:translateX(-100%);}100%{transform:translateX(50%);}}
+.panel::after{content:'';position:absolute;bottom:0;right:0;width:20px;height:20px;border-bottom:1px solid rgba(255,215,0,.12);border-right:1px solid rgba(255,215,0,.12);}
+.ptl{position:absolute;top:0;left:0;width:20px;height:20px;border-top:1px solid rgba(255,215,0,.12);border-left:1px solid rgba(255,215,0,.12);}
+.plbl{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--r);text-shadow:var(--rg);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.plbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,0,68,.25),transparent);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;}
+@media(max-width:700px){.g2,.g3{grid-template-columns:1fr;}.g4{grid-template-columns:1fr 1fr;}}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,215,0,.55);text-transform:uppercase;}
+input,select,textarea{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:12px 14px;color:#fff;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:1px;outline:none;width:100%;transition:all .22s;caret-color:var(--g);}
+select{cursor:pointer;}select option{background:#0a0015;color:#fff;}
+textarea{resize:vertical;min-height:80px;font-family:'Rajdhani',sans-serif;font-size:14px;letter-spacing:0;}
+input:focus,select:focus,textarea:focus{border-color:rgba(255,215,0,.35);background:rgba(255,215,0,.018);box-shadow:0 0 0 1px rgba(255,215,0,.06);}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.13);font-size:11px;}
+input::-webkit-calendar-picker-indicator{filter:invert(1) sepia(1) saturate(3);opacity:.38;cursor:pointer;}
+.btn{padding:14px 24px;font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;cursor:pointer;position:relative;overflow:hidden;transition:all .28s;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border:none;}
+.btn::before{content:'';position:absolute;inset:0;transform:translateX(-115%) skewX(-14deg);transition:transform .42s cubic-bezier(.23,1,.32,1);}
+.btn:hover:not(:disabled)::before{transform:translateX(0) skewX(-14deg);}
+.btn:active:not(:disabled){transform:scale(.97);}
+.btn:disabled{opacity:.18;cursor:not-allowed;}
+.btn.w{width:100%;padding:18px;}
+.btn-g{background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.3);color:var(--g);text-shadow:var(--gg);}
+.btn-g::before{background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(255,215,0,.22),rgba(255,215,0,.1));}
+.btn-g:hover:not(:disabled){border-color:rgba(255,215,0,.58);box-shadow:var(--gg);transform:translateY(-2px);}
+.btn-r{background:rgba(255,0,68,.07);border:1px solid rgba(255,0,68,.26);color:var(--r);}
+.btn-r::before{background:linear-gradient(135deg,rgba(255,0,68,.1),rgba(255,0,68,.22),rgba(255,0,68,.1));}
+.btn-r:hover{border-color:rgba(255,0,68,.55);box-shadow:var(--rg);transform:translateY(-1px);}
+.btn-c{background:rgba(0,255,231,.05);border:1px solid rgba(0,255,231,.2);color:var(--c);}
+.btn-c:hover{border-color:rgba(0,255,231,.5);box-shadow:var(--cg);transform:translateY(-1px);}
+.btn-p{background:rgba(196,75,255,.07);border:1px solid rgba(196,75,255,.25);color:var(--p);}
+.btn-p::before{background:linear-gradient(135deg,rgba(196,75,255,.1),rgba(196,75,255,.22),rgba(196,75,255,.1));}
+.btn-p:hover{border-color:rgba(196,75,255,.52);box-shadow:var(--pg);transform:translateY(-1px);}
+.btn-sm{padding:7px 14px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;transition:all .18s;border-radius:3px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,215,0,.44);}
+.btn-sm:hover{border-color:rgba(255,215,0,.26);color:var(--g);}
+.sc{background:var(--glass);border:1px solid var(--gb);backdrop-filter:blur(16px);padding:20px;text-align:center;border-radius:4px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.sc:hover{transform:translateY(-4px);box-shadow:0 14px 45px rgba(0,0,0,.5);}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac,var(--g));opacity:.5;}
+.sc-n{font-family:'Bebas Neue',sans-serif;font-size:50px;color:var(--ac,var(--g));text-shadow:0 0 18px var(--ac,var(--g));display:block;line-height:1;}
+.sc-l{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.24);margin-top:3px;display:block;}
+.cdr{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:38px;}
+.cdb{min-width:78px;padding:18px 10px;text-align:center;background:var(--glass);border:1px solid var(--gb);backdrop-filter:blur(20px);border-radius:3px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 8px 30px rgba(0,0,0,.38);}
+.cdn{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--g);text-shadow:var(--gg);display:block;line-height:1;}
+.cdl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(255,215,0,.24);margin-top:3px;display:block;}
+.bkl{display:flex;flex-direction:column;gap:7px;max-height:460px;overflow-y:auto;padding-right:3px;}
+.bkl::-webkit-scrollbar{width:2px;}
+.bkl::-webkit-scrollbar-thumb{background:rgba(255,215,0,.12);border-radius:1px;}
+.bki{background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.055);padding:11px 14px;display:flex;align-items:center;gap:10px;border-radius:3px;transition:all .18s;}
+.bki:hover{background:rgba(255,255,255,.05);border-color:rgba(255,215,0,.14);transform:translateX(3px);}
+.bkdot{width:7px;height:7px;border-radius:50%;background:var(--r);box-shadow:0 0 7px var(--r);flex-shrink:0;animation:dotpulse 2s ease-in-out infinite;}
+@keyframes dotpulse{0%,100%{box-shadow:0 0 4px var(--r);}50%{box-shadow:0 0 13px var(--r),0 0 26px rgba(255,0,68,.28);}}
+.bk-date{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--g);min-width:46px;}
+.bk-time{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--c);min-width:40px;}
+.bk-name{font-family:'Rajdhani',sans-serif;font-size:14px;color:#fff;font-weight:500;flex:1;}
+.bk-col{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(196,75,255,.55);min-width:80px;}
+.bk-email{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.25);min-width:110px;}
+.bk-del{background:none;border:1px solid rgba(255,0,68,.17);color:rgba(255,0,68,.42);font-size:10px;padding:4px 8px;border-radius:2px;cursor:pointer;font-family:'Share Tech Mono',monospace;transition:all .18s;flex-shrink:0;}
+.bk-del:hover{border-color:var(--r);color:var(--r);}
+.bk-empty{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,215,0,.15);text-align:center;padding:32px;}
+@media(max-width:600px){.bk-email,.bk-col{display:none;}}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.calt{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);text-shadow:var(--gg);letter-spacing:2px;}
+.calnav{display:flex;gap:7px;}
+.cn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,215,0,.48);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:2px;transition:all .18s;font-size:17px;}
+.cn:hover{border-color:rgba(255,215,0,.3);color:var(--g);}
+.cdh{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:5px;}
+.cdhl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.18);text-align:center;padding:3px;}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cc{aspect-ratio:1;border-radius:3px;border:1px solid rgba(255,255,255,.045);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:9px;cursor:pointer;transition:all .14s;position:relative;flex-direction:column;}
+.cc.emp{border-color:transparent;cursor:default;}
+.cc.today{border-color:rgba(255,215,0,.42);box-shadow:0 0 10px rgba(255,215,0,.16);color:var(--g);}
+.cc.booked{background:rgba(255,0,68,.14);border-color:rgba(255,0,68,.32);color:var(--r);}
+.cc.booked:hover{background:rgba(255,0,68,.22);}
+.cc.avail{color:rgba(255,255,255,.35);}
+.cc.avail:hover{background:rgba(255,215,0,.065);border-color:rgba(255,215,0,.24);color:var(--g);}
+.cc.past,.cc.we{color:rgba(255,255,255,.1);cursor:default;border-color:rgba(255,255,255,.028);}
+.bdot{width:4px;height:4px;border-radius:50%;background:var(--r);box-shadow:0 0 4px var(--r);margin-top:2px;}
+.cleg{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;}
+.cld{display:flex;align-items:center;gap:5px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.22);}
+.cldd{width:9px;height:9px;border-radius:2px;}
+.tl{display:flex;flex-direction:column;}
+.tli{display:flex;gap:13px;padding-bottom:16px;}
+.tli:last-child{padding-bottom:0;}
+.tl-lf{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 9px var(--g);flex-shrink:0;margin-top:4px;}
+.tl-tr{width:1px;background:linear-gradient(180deg,rgba(255,215,0,.2),transparent);flex:1;margin-top:4px;}
+.tli:last-child .tl-tr{display:none;}
+.tl-bd{flex:1;}
+.tl-time{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--g);margin-bottom:2px;}
+.tl-nm{font-family:'Rajdhani',sans-serif;font-size:14px;color:#fff;font-weight:500;}
+.tl-sub{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.26);margin-top:2px;}
+.lbi{background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.055);border-radius:3px;padding:12px 15px;display:flex;align-items:center;gap:12px;margin-bottom:7px;transition:all .18s;}
+.lb-rk{font-family:'Bebas Neue',sans-serif;font-size:26px;min-width:30px;text-align:center;}
+.lbr1{color:#ffd700;text-shadow:0 0 14px #ffd700;}
+.lbr2{color:#c0c0c0;text-shadow:0 0 10px #c0c0c0;}
+.lbr3{color:#cd7f32;text-shadow:0 0 10px #cd7f32;}
+.lbrn{color:rgba(255,255,255,.2);}
+.lb-nm{font-family:'Rajdhani',sans-serif;font-size:15px;color:#fff;font-weight:600;flex:1;}
+.lb-ct{font-family:'Orbitron',sans-serif;font-size:12px;color:var(--g);text-shadow:var(--gg);}
+.lb-bar{height:2px;background:rgba(255,255,255,.06);border-radius:1px;margin-top:4px;overflow:hidden;}
+.lb-bf{height:100%;background:linear-gradient(90deg,var(--r),var(--g));border-radius:1px;transition:width .9s ease;}
+.doc-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:18px;display:flex;align-items:center;gap:14px;transition:all .2s;}
+.doc-card:hover{border-color:rgba(255,215,0,.16);transform:translateY(-2px);}
+.doc-av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;flex-shrink:0;border:1px solid rgba(255,215,0,.18);}
+.doc-info{flex:1;}
+.doc-nm{font-family:'Rajdhani',sans-serif;font-size:15px;color:#fff;font-weight:600;}
+.doc-rol{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;margin-top:2px;}
+.doc-vak{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:1px;color:rgba(255,255,255,.28);margin-top:3px;}
+.doc-badge{display:inline-block;padding:2px 8px;border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;border:1px solid currentColor;opacity:.65;margin-top:5px;}
+.ch-row{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+.ch-lbl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.35);min-width:36px;}
+.ch-wrap{flex:1;height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.ch-bar{height:100%;border-radius:3px;transition:width 1s ease;}
+.ch-val{font-family:'Orbitron',monospace;font-size:10px;color:rgba(255,255,255,.45);min-width:18px;text-align:right;}
+.suc{display:none;text-align:center;}
+.suc.on{display:block;}
+.suc-ic{font-size:76px;display:block;margin-bottom:14px;animation:spin 6s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.suc-t{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,62px);color:var(--g);text-shadow:var(--gg);margin-bottom:7px;letter-spacing:2px;animation:gpulse 2.5s ease-in-out infinite alternate;}
+@keyframes gpulse{0%{text-shadow:0 0 18px rgba(255,215,0,.35);}100%{text-shadow:0 0 75px rgba(255,215,0,1),0 0 150px rgba(255,215,0,.28);}}
+.suc-s{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--c);text-shadow:var(--cg);margin-bottom:34px;}
+.scc{background:rgba(255,255,255,.035);border:1px solid rgba(255,215,0,.13);padding:24px;text-align:left;position:relative;margin-bottom:20px;border-radius:3px;}
+.scc::before{content:'BEVESTIGING';position:absolute;top:-10px;left:20px;background:var(--dk);padding:0 11px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:4px;color:var(--g);}
+.scr{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,215,0,.045);}
+.scr:last-child{border-bottom:none;}
+.sck{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(255,215,0,.32);}
+.scv{color:#fff;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:500;}
+.alock{font-size:58px;text-align:center;display:block;margin-bottom:16px;animation:lockpulse 3s ease-in-out infinite;}
+@keyframes lockpulse{0%,100%{filter:drop-shadow(0 0 7px rgba(196,75,255,.28));}50%{filter:drop-shadow(0 0 22px rgba(196,75,255,.75));}}
+.err{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--r);min-height:15px;margin-bottom:9px;text-align:center;}
+.ldb{display:none;height:2px;background:rgba(255,215,0,.04);margin-bottom:13px;overflow:hidden;border-radius:1px;}
+.ldb.on{display:block;}
+.ldb::after{content:'';display:block;height:100%;background:linear-gradient(90deg,transparent,var(--g),var(--c),var(--p),transparent);animation:loading 1s linear infinite;}
+@keyframes loading{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.tag{display:inline-block;padding:2px 9px;border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;border:1px solid currentColor;opacity:.65;margin:2px;}
+.tip{background:rgba(255,215,0,.035);border:1px solid rgba(255,215,0,.09);border-radius:3px;padding:12px 15px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(255,215,0,.48);line-height:1.8;}
+.tip strong{color:var(--g);}
+.rv{opacity:0;transform:translateY(18px);animation:rvA .65s cubic-bezier(.23,1,.32,1) forwards;}
+.rv:nth-child(1){animation-delay:.04s;}.rv:nth-child(2){animation-delay:.12s;}.rv:nth-child(3){animation-delay:.2s;}.rv:nth-child(4){animation-delay:.28s;}.rv:nth-child(5){animation-delay:.36s;}.rv:nth-child(6){animation-delay:.44s;}
+@keyframes rvA{to{opacity:1;transform:translateY(0);}}
+#toast{position:fixed;top:46px;left:50%;transform:translateX(-50%) translateY(-12px);background:rgba(0,255,231,.07);border:1px solid rgba(0,255,231,.22);backdrop-filter:blur(14px);padding:11px 20px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--c);z-index:9990;opacity:0;transition:all .36s cubic-bezier(.23,1,.32,1);pointer-events:none;border-radius:3px;white-space:nowrap;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.sp-hdr{display:flex;align-items:center;gap:13px;margin-bottom:16px;padding:13px 16px;background:rgba(29,185,84,.055);border:1px solid rgba(29,185,84,.13);border-radius:4px;}
+.sp-ico{font-size:26px;}
+.sp-tx{flex:1;}
+.sp-title{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--gr);letter-spacing:2px;}
+.sp-sub{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(29,185,84,.42);margin-top:2px;letter-spacing:2px;}
+.sp-btn{padding:9px 16px;background:rgba(29,185,84,.1);border:1px solid rgba(29,185,84,.26);color:var(--gr);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;border-radius:20px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;}
+.sp-btn:hover{background:rgba(29,185,84,.2);box-shadow:0 0 18px rgba(29,185,84,.28);}
+.wxr{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+.wxc{flex:1;min-width:150px;background:var(--glass);border:1px solid rgba(96,165,250,.16);backdrop-filter:blur(20px);border-radius:4px;padding:16px 18px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;}
+.wxc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(96,165,250,.35),transparent);}
+.wxi{font-size:32px;}
+.wxinfo{display:flex;flex-direction:column;gap:2px;flex:1;}
+.wxt{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--w);text-shadow:var(--wg);}
+.wxd{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(96,165,250,.6);}
+.wxl{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.22);margin-top:1px;}
+</style>
+</head>
+<body>
+<div id="aurora"><div class="al a1"></div><div class="al a2"></div><div class="al a3"></div><div class="al a4"></div></div>
+<div class="gridbg"></div>
+<div class="scan"></div>
+<div id="ticker"><div id="tkT"></div></div>
+<div id="toast"></div>
+<div id="nav"><div class="nav-inner">
+  <div class="nb on" onclick="go('home',this)">🎬<span class="nbl">HOME</span></div>
+  <div class="nb" onclick="go('book',this)">📅<span class="nbl">BOEKEN</span></div>
+  <div class="nb" onclick="go('cal',this)">🗓<span class="nbl">KALENDER</span></div>
+  <div class="nb" onclick="go('docs',this)">👥<span class="nbl">DOCENTEN</span></div>
+  <div class="nb" onclick="go('stats',this)">📊<span class="nbl">STATS</span></div>
+  <div class="nb" onclick="go('music',this)">🎵<span class="nbl">MUZIEK</span></div>
+  <div class="nb" onclick="go('info',this)">ℹ<span class="nbl">INFO</span></div>
+  <div class="nb adm-nb" onclick="go('admin',this)">🔐<span class="nbl">ADMIN</span></div>
+</div></div>
+
+<div class="wrap">
+
+<!-- HOME -->
+<div class="page on" id="page-home">
+  <div class="ph rv"><div class="ph-eye">SCHOOLPRODUCTIE 2026</div><div class="ph-h">RASPUTIN</div><p class="ph-s">OPNAME AFSPRAKEN SYSTEEM</p><div class="ph-rule"></div></div>
+  <div id="cdLabel" style="text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(255,215,0,.2);margin-bottom:4px;" class="rv">— NOG GEEN AANMELDINGEN —</div>
+  <div id="cdWho" style="text-align:center;font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:3px;color:rgba(0,255,231,.35);margin-bottom:10px;min-height:16px;"></div>
+  <div class="cdr rv"><div class="cdb"><span class="cdn" id="cdD">—</span><span class="cdl">DAGEN</span></div><div class="cdb"><span class="cdn" id="cdH">—</span><span class="cdl">UREN</span></div><div class="cdb"><span class="cdn" id="cdM">—</span><span class="cdl">MIN</span></div><div class="cdb"><span class="cdn" id="cdS">—</span><span class="cdl">SEC</span></div></div>
+  <div class="wxr rv">
+    <div class="wxc"><div class="wxi" id="wxI">🌡</div><div class="wxinfo"><div class="wxt" id="wxT">—°C</div><div class="wxd" id="wxD">LADEN...</div><div class="wxl" id="wxL">LOCATIE</div></div></div>
+    <div class="wxc"><div style="display:flex;gap:16px;flex-wrap:wrap;"><div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--w);" id="wxW">—</div><div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.2);">KM/H WIND</div></div><div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--w);" id="wxH">—</div><div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.2);">% VOCHTIG</div></div></div></div>
+    <div class="wxc" style="flex-direction:column;gap:5px;"><div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(96,165,250,.45);">OPNAME ADVIES</div><div id="wxAdv" style="font-family:'Rajdhani',sans-serif;font-size:13px;color:#fff;line-height:1.4;">Laden...</div></div>
+  </div>
+  <div class="g4 rv" style="margin-bottom:18px;">
+    <div class="sc" style="--ac:var(--g)"><span class="sc-n" id="qs1">0</span><span class="sc-l">TOTAAL</span></div>
+    <div class="sc" style="--ac:var(--c)"><span class="sc-n" id="qs2">0</span><span class="sc-l">AANKOMEND</span></div>
+    <div class="sc" style="--ac:var(--r)"><span class="sc-n" id="qs3">0</span><span class="sc-l">VANDAAG</span></div>
+    <div class="sc" style="--ac:var(--p)"><span class="sc-n" id="qs4">0</span><span class="sc-l">DOCENTEN</span></div>
+  </div>
+  <div class="panel rv"><div class="ptl"></div><p class="plbl">// AGENDA VANDAAG</p><div id="todayTL"></div></div>
+  <div class="g2 rv">
+    <div class="panel" style="cursor:pointer;text-align:center;" onclick="go('book',document.querySelectorAll('.nb')[1])"><div class="ptl"></div><div style="font-size:36px;margin-bottom:9px;">📅</div><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--g);text-shadow:var(--gg);letter-spacing:2px;">AFSPRAAK MAKEN</div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(255,215,0,.32);margin-top:5px;">BOEK JE SLOT →</div></div>
+    <div class="panel" style="cursor:pointer;text-align:center;" onclick="go('music',document.querySelectorAll('.nb')[5])"><div class="ptl"></div><div style="font-size:36px;margin-bottom:9px;">🎵</div><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gr);text-shadow:0 0 18px rgba(29,185,84,.45);letter-spacing:2px;">SPOTIFY PLAYER</div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(29,185,84,.32);margin-top:5px;">LUISTER RASPUTIN →</div></div>
+  </div>
+</div>
+
+<!-- BOEKEN -->
+<div class="page" id="page-book">
+  <div class="ph rv"><div class="ph-eye">MAAK EEN AFSPRAAK</div><div class="ph-h">BOEKEN</div><p class="ph-s">PLAN JE OPNAME TIJDSLOT</p><div class="ph-rule"></div></div>
+  <div id="bkForm">
+    <div class="panel rv"><div class="ptl"></div><p class="plbl">// 01 — DATUM & TIJD</p>
+      <div class="g2"><div class="fg"><label>Datum</label><input type="date" id="dF"></div><div class="fg"><label>Tijdstip</label><input type="time" id="tF" min="07:00" max="20:00" step="900" value="09:00"></div></div>
+      <div id="avEl" style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.26);margin-top:2px;">— SELECTEER DATUM EN TIJD —</div>
+    </div>
+    <div class="panel rv"><div class="ptl"></div><p class="plbl">// 02 — JOUW GEGEVENS</p>
+      <div class="g2"><div class="fg"><label>Naam</label><input type="text" id="nF" placeholder="Voor- en achternaam"></div><div class="fg"><label>E-mailadres</label><input type="email" id="eF" placeholder="naam@school.nl"></div></div>
+      <div class="fg"><label>Met welke collega samenwerken? (optioneel)</label><select id="colF"><option value="">— Geen voorkeur / Solo —</option></select></div>
+      <div class="fg"><label>Opmerkingen (optioneel)</label><textarea id="noF" placeholder="Bijzondere wensen, vragen of aanvullende informatie..."></textarea></div>
+    </div>
+    <div class="panel rv"><div class="ptl"></div><p class="plbl">// 03 — BEVESTIGEN</p>
+      <p class="err" id="errMsg"></p>
+      <div class="ldb" id="ldBar"></div>
+      <button class="btn btn-g w" id="subBtn" onclick="doSubmit()">▶ &nbsp; BEVESTIG AFSPRAAK</button>
+    </div>
+  </div>
+  <div class="suc" id="sucEl">
+    <div class="panel"><div class="ptl"></div>
+      <span class="suc-ic">🎬</span><div class="suc-t">GELUKT!</div>
+      <p class="suc-s">// AFSPRAAK BEVESTIGD //</p>
+      <div class="scc" id="sccEl"></div>
+      <p style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,255,231,.35);text-align:center;margin-bottom:20px;line-height:1.9;">TOT OP DE SET!</p>
+      <button class="btn btn-c" onclick="doReset()" style="display:flex;margin:0 auto;max-width:250px;">↩ NIEUWE AFSPRAAK</button>
+    </div>
+  </div>
+</div>
+
+<!-- KALENDER -->
+<div class="page" id="page-cal">
+  <div class="ph rv"><div class="ph-eye">OVERZICHT</div><div class="ph-h">KALENDER</div><p class="ph-s">ALLE GEPLANDE OPNAMES</p><div class="ph-rule"></div></div>
+  <div class="panel rv"><div class="ptl"></div>
+    <div class="calh"><div class="calt" id="calT"></div><div class="calnav"><div class="cn" onclick="calNav(-1)">‹</div><div class="cn" onclick="calNav(0)">●</div><div class="cn" onclick="calNav(1)">›</div></div></div>
+    <div class="cdh"><div class="cdhl">MA</div><div class="cdhl">DI</div><div class="cdhl">WO</div><div class="cdhl">DO</div><div class="cdhl">VR</div><div class="cdhl" style="color:rgba(255,0,68,.28);">ZA</div><div class="cdhl" style="color:rgba(255,0,68,.28);">ZO</div></div>
+    <div class="cgrid" id="calGrid"></div>
+    <div class="cleg"><div class="cld"><div class="cldd" style="background:rgba(255,0,68,.14);border:1px solid rgba(255,0,68,.32);"></div>GEBOEKT</div><div class="cld"><div class="cldd" style="border:1px solid rgba(255,215,0,.42);"></div>VANDAAG</div><div class="cld"><div class="cldd" style="border:1px solid rgba(255,255,255,.045);"></div>BESCHIKBAAR</div></div>
+  </div>
+  <div class="panel rv" id="dayD" style="display:none;"><div class="ptl"></div><p class="plbl" id="dayDT">// AFSPRAKEN</p><div id="dayDL"></div></div>
+  <div class="panel rv"><div class="ptl"></div><p class="plbl">// AFSPRAKEN DEZE MAAND</p><div class="bkl" id="monthL"></div></div>
+</div>
+
+<!-- DOCENTEN -->
+<div class="page" id="page-docs">
+  <div class="ph rv"><div class="ph-eye">DEELNEMERS</div><div class="ph-h">DOCENTEN</div><p class="ph-s">ALLE MEEDOENDE COLLEGA'S</p><div class="ph-rule"></div></div>
+  <div class="panel rv"><div class="ptl"></div><p class="plbl">// DEELNEMERSLIJST</p><div class="g2" id="docGrid"></div></div>
+  <div class="panel rv" style="text-align:center;"><div class="ptl"></div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,215,0,.35);margin-bottom:8px;">BEHEERD VIA HET ADMIN PANEL</div>
+    <button class="btn btn-p" onclick="go('admin',document.querySelectorAll('.nb')[7])">🔐 NAAR ADMIN PANEL</button>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="page" id="page-stats">
+  <div class="ph rv"><div class="ph-eye">ANALYTICS</div><div class="ph-h">STATISTIEKEN</div><p class="ph-s">INZICHTEN & OVERZICHT</p><div class="ph-rule"></div></div>
+  <div class="g4 rv" style="margin-bottom:18px;">
+    <div class="sc" style="--ac:var(--g)"><span class="sc-n" id="st1">0</span><span class="sc-l">TOTAAL</span></div>
+    <div class="sc" style="--ac:var(--c)"><span class="sc-n" id="st2">0</span><span class="sc-l">AANKOMEND</span></div>
+    <div class="sc" style="--ac:var(--r)"><span class="sc-n" id="st3">0</span><span class="sc-l">GEWEEST</span></div>
+    <div class="sc" style="--ac:var(--p)"><span class="sc-n" id="st4">0</span><span class="sc-l">UNIEKE DAGEN</span></div>
+  </div>
+  <div class="g2 rv">
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 🏆 TOP DOCENTEN</p><div id="lb"></div></div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 👥 POPULAIRE DUO'S</p><div id="combos"></div></div>
+  </div>
+  <div class="g2 rv">
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 📅 PER WEEKDAG</p><div id="wdChart"></div></div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 🕐 PER UUR</p><div id="hrChart"></div></div>
+  </div>
+</div>
+
+<!-- MUZIEK -->
+<div class="page" id="page-music">
+  <div class="ph rv"><div class="ph-eye">SPOTIFY INTEGRATIE</div><div class="ph-h">MUZIEK</div><p class="ph-s">RASPUTIN — BONEY M.</p><div class="ph-rule"></div></div>
+
+  <!-- Grote featured player -->
+  <div class="panel rv" style="background:linear-gradient(135deg,rgba(29,185,84,.08),rgba(0,0,0,.2));border-color:rgba(29,185,84,.2);">
+    <div class="ptl"></div>
+    <p class="plbl" style="color:var(--gr);">// 🎵 LIVE SPOTIFY PLAYER — KLIK PLAY OM TE STARTEN</p>
+
+    <!-- Spotify embed - groot formaat met volledige controls -->
+    <div style="border-radius:16px;overflow:hidden;box-shadow:0 0 60px rgba(29,185,84,.15),0 0 120px rgba(29,185,84,.05);margin-bottom:18px;position:relative;">
+      <iframe
+        id="spEmbed"
+        src="https://open.spotify.com/embed/track/6e40mgJiCid5HRAGvWGNLU?utm_source=generator&theme=0"
+        width="100%"
+        height="380"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="eager"
+        style="display:block;"
+      ></iframe>
+    </div>
+
+    <!-- Info balk onder player -->
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(29,185,84,.05);border:1px solid rgba(29,185,84,.12);border-radius:8px;">
+      <div style="font-size:28px;filter:drop-shadow(0 0 12px rgba(29,185,84,.5));">🎧</div>
+      <div style="flex:1;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:13px;color:var(--gr);letter-spacing:2px;text-shadow:0 0 12px rgba(29,185,84,.4);">RASPUTIN</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(29,185,84,.5);letter-spacing:2px;margin-top:3px;">BONEY M. &bull; 1978 &bull; MAXI-SINGLE</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="https://open.spotify.com/track/6e40mgJiCid5HRAGvWGNLU" target="_blank"
+           style="padding:9px 16px;background:rgba(29,185,84,.15);border:1px solid rgba(29,185,84,.3);color:var(--gr);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;border-radius:20px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"
+           onmouseover="this.style.background='rgba(29,185,84,.28)'" onmouseout="this.style.background='rgba(29,185,84,.15)'">
+          🎵 SPOTIFY APP
+        </a>
+        <a href="https://www.youtube.com/watch?v=IqH7kRopArE" target="_blank"
+           style="padding:9px 16px;background:rgba(255,0,68,.08);border:1px solid rgba(255,0,68,.2);color:var(--r);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;border-radius:20px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"
+           onmouseover="this.style.background='rgba(255,0,68,.18)'" onmouseout="this.style.background='rgba(255,0,68,.08)'">
+          📺 YOUTUBE
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meer nummers -->
+  <div class="panel rv"><div class="ptl"></div>
+    <p class="plbl">// 🎼 MEER BONEY M. HITS</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:8px;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,215,0,.4);min-width:18px;">01</div>
+        <div style="flex:1;">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:14px;color:#fff;font-weight:600;">Rivers of Babylon</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.25);letter-spacing:1px;">BONEY M. &bull; 1978</div>
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/0yc6Gst2xkRu0nUGjnOPde?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;max-width:340px;"></iframe>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:8px;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,215,0,.4);min-width:18px;">02</div>
+        <div style="flex:1;">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:14px;color:#fff;font-weight:600;">Ma Baker</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.25);letter-spacing:1px;">BONEY M. &bull; 1977</div>
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/4eLPsYPBmXABThSJ821sqY?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;max-width:340px;"></iframe>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:8px;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,215,0,.4);min-width:18px;">03</div>
+        <div style="flex:1;">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:14px;color:#fff;font-weight:600;">Sunny</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.25);letter-spacing:1px;">BONEY M. &bull; 1976</div>
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/7DlXqFSJNsNmqhHbxeAXEX?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;max-width:340px;"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="g2 rv">
+    <div class="panel"><div class="ptl"></div><p class="plbl">// OVER BONEY M.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:13px;">Boney M. is een West-Duits-Caraibisch muziekproject van producer Frank Farian. Rasputin uit 1978 is hun iconische hit over de mysterieuze Russische hofpriester Grigori Rasputin.</p>
+      <span class="tag" style="color:var(--g);">DISCO</span><span class="tag" style="color:var(--r);">1978</span><span class="tag" style="color:var(--c);">WEST-DUITSLAND</span>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// FUN FACTS</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:9px;align-items:flex-start;"><span>👑</span><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;">Rasputin was favoriet van tsarina Alexandra</div></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><span>💿</span><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;">100+ miljoen streams op Spotify</div></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><span>📱</span><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;">Viraal op TikTok in 2020</div></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><span>⏱</span><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;">5:50 min met iconisch strijkersarrangement</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO -->
+<div class="page" id="page-info">
+  <div class="ph rv"><div class="ph-eye">SCHOOLPRODUCTIE 2026</div><div class="ph-h">INFO</div><p class="ph-s">ALLES WAT JE MOET WETEN</p><div class="ph-rule"></div></div>
+  <div class="g2 rv">
+    <div class="panel"><div class="ptl"></div><p class="plbl">// HOE HET WERKT</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:11px;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);min-width:26px;text-shadow:var(--gg);">1</div><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;">Ga naar <strong style="color:var(--g)">BOEKEN</strong> en kies datum + tijdstip</div></div>
+        <div style="display:flex;gap:11px;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);min-width:26px;text-shadow:var(--gg);">2</div><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;">Kies optioneel een collega om mee samen te werken</div></div>
+        <div style="display:flex;gap:11px;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);min-width:26px;text-shadow:var(--gg);">3</div><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;">Bevestig je afspraak — je ziet direct een bevestiging</div></div>
+        <div style="display:flex;gap:11px;"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);min-width:26px;text-shadow:var(--gg);">4</div><div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;">Verschijn op tijd op de opnamelocatie</div></div>
+      </div>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// TIJDEN & REGELS</p>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div class="tip"><strong>BESCHIKBARE DAGEN</strong><br>Maandag t/m vrijdag — geen weekenden</div>
+        <div class="tip"><strong>TIJDSLOTEN</strong><br>07:00 – 20:00 | Per 15 minuten</div>
+        <div class="tip"><strong>SAMENWERKEN</strong><br>Kies bij het boeken een collega</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel rv"><div class="ptl"></div><p class="plbl">// VEELGESTELDE VRAGEN</p><div id="faqEl"></div></div>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="page-admin">
+  <div id="adminLogin" style="max-width:430px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <span class="alock">🔐</span>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--p);text-shadow:var(--pg);letter-spacing:3px;">ADMIN PANEL</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(196,75,255,.38);margin-top:4px;">BEVEILIGD — AUTORISATIE VEREIST</div>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// INLOGGEN</p>
+      <div class="fg"><label>Gebruikersnaam</label><input type="text" id="au" placeholder="gebruikersnaam" autocomplete="off" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
+      <div class="fg"><label>Wachtwoord</label><input type="password" id="ap" placeholder="••••••••" autocomplete="off" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
+      <p class="err" id="aErr"></p>
+      <button class="btn btn-p w" onclick="doAdminLogin()">🔓 &nbsp; INLOGGEN</button>
+    </div>
+  </div>
+  <div id="adminDash" style="display:none;">
+    <div class="ph"><div class="ph-eye">BEVEILIGD GEDEELTE</div><div class="ph-h" style="color:var(--p);text-shadow:var(--pg);">ADMIN</div><p class="ph-s" style="color:var(--p);">BEHEER AFSPRAKEN & DOCENTEN</p><div class="ph-rule" style="background:linear-gradient(90deg,transparent,var(--p),transparent);"></div></div>
+    <div class="g4" style="margin-bottom:18px;">
+      <div class="sc" style="--ac:var(--g)"><span class="sc-n" id="ad1">0</span><span class="sc-l">AFSPRAKEN</span></div>
+      <div class="sc" style="--ac:var(--c)"><span class="sc-n" id="ad2">0</span><span class="sc-l">AANKOMEND</span></div>
+      <div class="sc" style="--ac:var(--r)"><span class="sc-n" id="ad3">0</span><span class="sc-l">GEWEEST</span></div>
+      <div class="sc" style="--ac:var(--p)"><span class="sc-n" id="ad4">0</span><span class="sc-l">DOCENTEN</span></div>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 📋 ALLE AFSPRAKEN</p>
+      <div style="display:flex;gap:9px;margin-bottom:13px;flex-wrap:wrap;">
+        <input type="text" id="aSearch" placeholder="Zoek op naam, datum..." oninput="renderAdmin()" style="flex:1;min-width:160px;">
+        <button class="btn btn-r" onclick="adminClearAll()" style="padding:11px 14px;white-space:nowrap;font-size:10px;letter-spacing:2px;">🗑 ALLES WISSEN</button>
+      </div>
+      <div class="bkl" id="adminList" style="max-height:480px;"></div>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// 👥 DOCENTEN BEHEREN</p>
+      <div class="g2">
+        <div class="fg"><label>Naam</label><input type="text" id="dnF" placeholder="Volledige naam"></div>
+        <div class="fg"><label>Vakgebied</label><input type="text" id="dvF" placeholder="Bijv. Nederlands, Wiskunde"></div>
+      </div>
+      <div class="g2">
+        <div class="fg"><label>Rol in productie</label><input type="text" id="drF" placeholder="Bijv. Acteur, Regisseur"></div>
+        <div class="fg"><label>Badge kleur</label>
+          <select id="dbF">
+            <option value="var(--g)">✦ Goud</option>
+            <option value="var(--c)">✦ Cyaan</option>
+            <option value="var(--r)">✦ Rood</option>
+            <option value="var(--p)">✦ Paars</option>
+            <option value="var(--gr)">✦ Groen</option>
+          </select>
+        </div>
+      </div>
+      <p class="err" id="dErr"></p>
+      <button class="btn btn-g w" onclick="adminAddDoc()">+ &nbsp; DOCENT TOEVOEGEN</button>
+      <div style="margin-top:16px;max-height:280px;overflow-y:auto;" id="adminDocList"></div>
+    </div>
+    <div class="panel"><div class="ptl"></div><p class="plbl">// ➕ AFSPRAAK HANDMATIG TOEVOEGEN</p>
+      <div class="g2">
+        <div class="fg"><label>Datum</label><input type="date" id="adF2"></div>
+        <div class="fg"><label>Tijdstip</label><input type="time" id="atF2" min="07:00" max="20:00" step="900" value="09:00"></div>
+      </div>
+      <div class="g2">
+        <div class="fg"><label>Naam</label><input type="text" id="anF2" placeholder="Naam docent"></div>
+        <div class="fg"><label>E-mail</label><input type="email" id="aeF2" placeholder="email@school.nl"></div>
+      </div>
+      <div class="fg"><label>Met collega</label><select id="acF2"><option value="">— Geen —</option></select></div>
+      <div class="fg"><label>Opmerking</label><input type="text" id="anoF2" placeholder="Optioneel..."></div>
+      <p class="err" id="adErr2"></p>
+      <button class="btn btn-p w" onclick="adminAddBooking()">+ &nbsp; AFSPRAAK TOEVOEGEN</button>
+    </div>
+    <div style="text-align:right;margin-top:8px;"><button class="btn-sm" onclick="doLogout()">🔒 UITLOGGEN</button></div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ── IN-MEMORY STATE (geen localStorage) ──────────────────────────────────
+const STATE = {
+  bookings: [],
+  docs: [
+    {id:1,name:'Dhr. De Vries',vak:'Nederlands',rol:'Regisseur',color:'var(--g)'},
+    {id:2,name:'Mevr. Jansen',vak:'Drama',rol:'Actrice',color:'var(--c)'},
+    {id:3,name:'Dhr. Bakker',vak:'Muziek',rol:'Muzikant',color:'var(--r)'},
+    {id:4,name:'Mevr. Van den Berg',vak:'Beeldende Kunst',rol:'Decor',color:'var(--p)'},
+    {id:5,name:'Dhr. Smit',vak:'Informatica',rol:'Techniek',color:'var(--gr)'},
+    {id:6,name:'Mevr. Mulder',vak:'CKV',rol:'Actrice',color:'var(--g)'}
+  ]
+};
+const getAll  = () => STATE.bookings;
+const saveOne = b => { STATE.bookings.push(b); };
+const saveAll = a => { STATE.bookings = a; };
+const getDocs = () => STATE.docs;
+const saveDocs= d => { STATE.docs = d; };
+const isBooked= (d,t) => STATE.bookings.some(b => b.date===d && b.time===t);
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+const todayS = new Date().toISOString().split('T')[0];
+const toDS   = d => d.toISOString().split('T')[0];
+const MOS    = ['JANUARI','FEBRUARI','MAART','APRIL','MEI','JUNI','JULI','AUGUSTUS','SEPTEMBER','OKTOBER','NOVEMBER','DECEMBER'];
+const MS     = ['JAN','FEB','MRT','APR','MEI','JUN','JUL','AUG','SEP','OKT','NOV','DEC'];
+const DW     = ['ZO','MA','DI','WO','DO','VR','ZA'];
+const fmt    = ds => `${DW[new Date(ds).getDay()]} ${parseInt(ds.split('-')[2])} ${MS[parseInt(ds.split('-')[1])-1]} ${ds.split('-')[0]}`;
+
+// ── TICKER ────────────────────────────────────────────────────────────────
+const TW = ['RASPUTIN','X','BONEY M.','X','MUZIEKVIDEO','X','OPNAME 2026','X','RA RA RASPUTIN','X','LOVER OF THE RUSSIAN QUEEN','X','SCHOOLPRODUCTIE','X','OPNAME HQ','X'];
+const tk = document.getElementById('tkT');
+tk.innerHTML = [...TW,...TW,...TW,...TW].map((w,i) => i%2===1
+  ? `<span class="tg">✦</span>`
+  : `<span class="tw">${w}</span>`).join('');
+
+// ── COUNTDOWN — altijd aftellen tot vroegste aankomende boeking ───────────
+function getNextBooking(){
+  const now = new Date();
+  // Zet alle boekingen om naar Date objecten en pak de vroegste in de toekomst
+  const future = getAll()
+    .map(b => {
+      const [h,m] = b.time.split(':').map(Number);
+      const dt = new Date(b.date);
+      dt.setHours(h, m, 0, 0);
+      return { dt, booking: b };
+    })
+    .filter(x => x.dt > now)
+    .sort((a,b) => a.dt - b.dt);
+  return future.length ? future[0] : null;
+}
+
+function updateCD(){
+  const next = getNextBooking();
+  const lbl  = document.getElementById('cdLabel');
+  const who  = document.getElementById('cdWho');
+
+  if(!next){
+    // Nog geen boekingen of alles in verleden
+    if(lbl) lbl.textContent = '— NOG GEEN AANMELDINGEN —';
+    if(who) who.textContent = '';
+    ['cdD','cdH','cdM','cdS'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—';});
+    return;
+  }
+
+  const diff = next.dt - new Date();
+
+  if(diff <= 0){
+    // Deze is nu bezig / net gepasseerd — opnieuw berekenen volgende tick
+    if(lbl) lbl.textContent = '— NU OP DE SET! —';
+    if(who) who.textContent = (next.booking.name || '').toUpperCase();
+    ['cdD','cdH','cdM','cdS'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='00';});
+    return;
+  }
+
+  const D=Math.floor(diff/864e5),
+        H=Math.floor((diff%864e5)/36e5),
+        M=Math.floor((diff%36e5)/6e4),
+        S=Math.floor((diff%6e4)/1e3);
+
+  // Label: toon datum + tijd van de eerstvolgende boeking
+  const b = next.booking;
+  if(lbl) lbl.textContent = `— VOLGENDE OPNAME: ${fmt(b.date)} OM ${b.time} —`;
+  if(who) who.textContent = b.name.toUpperCase() + (b.collega ? ' + ' + b.collega.toUpperCase() : '');
+
+  ['cdD','cdH','cdM','cdS'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el) el.textContent=String([D,H,M,S][i]).padStart(2,'0');
+  });
+}
+updateCD(); setInterval(updateCD, 1000);
+
+// ── WEATHER ───────────────────────────────────────────────────────────────
+const WXC={0:'HELDER',1:'HELDER',2:'GEDEELTELIJK BEWOLKT',3:'BEWOLKT',45:'MISTIG',51:'MOTREGEN',61:'LICHTE REGEN',63:'MATIGE REGEN',65:'ZWARE REGEN',71:'SNEEUW',80:'BUIEN',81:'BUIEN',82:'ZWARE BUIEN',95:'ONWEER'};
+const WXI={0:'☀️',1:'🌤',2:'⛅',3:'☁️',45:'🌫',51:'🌦',61:'🌧',63:'🌧',65:'🌧',71:'❄️',80:'🌦',81:'🌧',82:'⛈',95:'⛈'};
+async function loadWx(){
+  try{
+    const g = await fetch('https://ipapi.co/json/').then(r=>r.json()).catch(()=>({latitude:52.37,longitude:4.89,city:'Amsterdam'}));
+    document.getElementById('wxL').textContent=(g.city||'NL').toUpperCase();
+    const d = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${g.latitude||52.37}&longitude=${g.longitude||4.89}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&wind_speed_unit=kmh&timezone=auto`).then(r=>r.json());
+    const c=d.current;
+    document.getElementById('wxT').textContent=Math.round(c.temperature_2m)+'°C';
+    document.getElementById('wxD').textContent=WXC[c.weather_code]||'ONBEKEND';
+    document.getElementById('wxI').innerHTML=WXI[c.weather_code]||'🌡';
+    document.getElementById('wxW').textContent=Math.round(c.wind_speed_10m);
+    document.getElementById('wxH').textContent=Math.round(c.relative_humidity_2m);
+    const t=c.temperature_2m,code=c.weather_code;
+    let adv='Goed opnameweer!';
+    if(code>=61&&code<=82)adv='Dak nodig bij opnames';
+    else if(code===95)adv='Liever binnen opnemen';
+    else if(t<3)adv='Koud! Warme kleding aan';
+    else if(t>28)adv='Heet! Water meenemen';
+    else if(code<=1)adv='Perfect opnameweer!';
+    document.getElementById('wxAdv').textContent=adv;
+  }catch(e){document.getElementById('wxD').textContent='NIET BESCHIKBAAR';}
+}
+loadWx();
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────
+function go(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('page-'+id).classList.add('on');
+  if(el)el.classList.add('on');
+  if(id==='stats')renderStats();
+  if(id==='cal')renderCal();
+  if(id==='home'){updateHStats();renderTodayTL();updateCD();}
+  if(id==='info')renderFAQ();
+  if(id==='docs')renderDocs();
+  if(id==='book')populateSel('colF');
+  if(id==='admin'&&!adminLogged){document.getElementById('adminLogin').style.display='block';document.getElementById('adminDash').style.display='none';}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+let tTO;
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tTO);tTO=setTimeout(()=>t.classList.remove('show'),3200);}
+
+// ── BOOKING FORM ──────────────────────────────────────────────────────────
+const dF=document.getElementById('dF'),tF=document.getElementById('tF');
+const tmr=new Date(); tmr.setDate(tmr.getDate()+1);
+dF.min=toDS(tmr);
+const mxD=new Date(); mxD.setMonth(mxD.getMonth()+6);
+dF.max=toDS(mxD);
+
+dF.addEventListener('change',()=>{
+  const d=new Date(dF.value);
+  if(d.getDay()===0||d.getDay()===6){showErr('KIES EEN WERKDAG (MA-VR)');dF.value='';}
+  else{hideErr();checkAv();}
+});
+tF.addEventListener('change',checkAv);
+
+function checkAv(){
+  const d=dF.value,t=tF.value,el=document.getElementById('avEl');
+  if(!d||!t){el.textContent='— SELECTEER DATUM EN TIJD —';el.style.color='rgba(255,255,255,.26)';return;}
+  if(isBooked(d,t)){el.textContent='DIT TIJDSTIP IS AL GEBOEKT';el.style.color='var(--r)';}
+  else{el.textContent='TIJDSTIP BESCHIKBAAR ✓';el.style.color='var(--c)';}
+}
+
+function populateSel(id){
+  const sel=document.getElementById(id);
+  if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— Geen voorkeur / Solo —</option>';
+  getDocs().forEach(d=>{const o=document.createElement('option');o.value=d.name;o.textContent=d.name+' ('+d.rol+')';sel.appendChild(o);});
+  if(cur)sel.value=cur;
+}
+
+function showErr(m){document.getElementById('errMsg').textContent=m;}
+function hideErr(){document.getElementById('errMsg').textContent='';}
+
+function doSubmit(){
+  const date=dF.value,time=tF.value,name=document.getElementById('nF').value.trim(),
+        email=document.getElementById('eF').value.trim(),
+        collega=document.getElementById('colF').value,
+        note=document.getElementById('noF').value.trim();
+  hideErr();
+  if(!date){showErr('KIES EEN DATUM');return;}
+  if(!time){showErr('KIES EEN TIJDSTIP');return;}
+  if(!name){showErr('NAAM IS VERPLICHT');return;}
+  if(!email||!email.includes('@')){showErr('GELDIG E-MAILADRES VEREIST');return;}
+  const h=parseInt(time.split(':')[0]);
+  if(h<7||h>=20){showErr('KIES EEN TIJD TUSSEN 07:00-20:00');return;}
+  if([0,6].includes(new Date(date).getDay())){showErr('GEEN WEEKENDEN');return;}
+  if(isBooked(date,time)){showErr('DIT TIJDSTIP IS AL GEBOEKT');return;}
+  document.getElementById('ldBar').classList.add('on');
+  document.getElementById('subBtn').disabled=true;
+  const bk={date,time,name,email,collega,note,id:Date.now()};
+  setTimeout(()=>finishBook(bk),800);
+}
+
+function finishBook(b){
+  saveOne(b);
+  document.getElementById('ldBar').classList.remove('on');
+  document.getElementById('bkForm').style.display='none';
+  document.getElementById('sucEl').classList.add('on');
+  document.getElementById('sccEl').innerHTML=
+    `<div class="scr"><span class="sck">NAAM</span><span class="scv">${b.name}</span></div>`+
+    `<div class="scr"><span class="sck">E-MAIL</span><span class="scv">${b.email}</span></div>`+
+    `<div class="scr"><span class="sck">DATUM</span><span class="scv">${fmt(b.date)}</span></div>`+
+    `<div class="scr"><span class="sck">TIJD</span><span class="scv">${b.time}</span></div>`+
+    (b.collega?`<div class="scr"><span class="sck">COLLEGA</span><span class="scv">${b.collega}</span></div>`:'')+
+    (b.note?`<div class="scr"><span class="sck">OPMERKING</span><span class="scv">${b.note}</span></div>`:'')+
+    `<div class="scr"><span class="sck">REF</span><span class="scv" style="font-size:11px;color:rgba(255,215,0,.3);font-family:'Share Tech Mono',monospace;">#${b.id}</span></div>`;
+  boom();updateHStats();updateCD();toast('AFSPRAAK BEVESTIGD!');
+}
+
+function doReset(){
+  document.getElementById('bkForm').style.display='block';
+  document.getElementById('sucEl').classList.remove('on');
+  document.getElementById('subBtn').disabled=false;
+  dF.value=''; tF.value='09:00';
+  ['nF','eF','noF'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('colF').value='';
+  hideErr();
+  document.getElementById('avEl').textContent='— SELECTEER DATUM EN TIJD —';
+}
+
+// ── HOME STATS ────────────────────────────────────────────────────────────
+function updateHStats(){
+  const all=getAll();
+  document.getElementById('qs1').textContent=all.length;
+  document.getElementById('qs2').textContent=all.filter(b=>b.date>=todayS).length;
+  document.getElementById('qs3').textContent=all.filter(b=>b.date===todayS).length;
+  document.getElementById('qs4').textContent=getDocs().length;
+}
+
+function renderTodayTL(){
+  const all=getAll().filter(b=>b.date===todayS).sort((a,b)=>a.time.localeCompare(b.time));
+  const el=document.getElementById('todayTL');
+  if(!all.length){el.innerHTML='<div class="bk-empty">// GEEN AFSPRAKEN VANDAAG //</div>';return;}
+  el.innerHTML='<div class="tl">'+all.map(b=>`
+    <div class="tli">
+      <div class="tl-lf"><div class="tl-dot"></div><div class="tl-tr"></div></div>
+      <div class="tl-bd"><div class="tl-time">${b.time}</div><div class="tl-nm">${b.name}</div>
+      ${b.collega?`<div class="tl-sub">+ ${b.collega}</div>`:''}
+      ${b.note?`<div class="tl-sub">${b.note}</div>`:''}</div>
+    </div>`).join('')+'</div>';
+}
+updateHStats(); renderTodayTL();
+
+// ── CALENDAR ──────────────────────────────────────────────────────────────
+let calY=new Date().getFullYear(), calM=new Date().getMonth();
+function calNav(d){
+  if(d===0){calY=new Date().getFullYear();calM=new Date().getMonth();}
+  else{calM+=d;if(calM>11){calM=0;calY++;}if(calM<0){calM=11;calY--;}}
+  renderCal();
+}
+function renderCal(){
+  const all=getAll(), bd={};
+  all.forEach(b=>{(bd[b.date]=bd[b.date]||[]).push(b);});
+  document.getElementById('calT').textContent=`${MOS[calM]} ${calY}`;
+  const grid=document.getElementById('calGrid'); grid.innerHTML='';
+  const first=new Date(calY,calM,1), sd=(first.getDay()+6)%7, dim=new Date(calY,calM+1,0).getDate();
+  for(let i=0;i<sd;i++){const c=document.createElement('div');c.className='cc emp';grid.appendChild(c);}
+  for(let d=1;d<=dim;d++){
+    const ds=`${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dow=new Date(ds).getDay(), isWE=dow===0||dow===6, isToday=ds===todayS, bArr=bd[ds]||[], isPast=ds<todayS;
+    const c=document.createElement('div');
+    let cls='cc ';
+    if(isWE)cls+='we'; else if(isPast)cls+='past'; else if(bArr.length)cls+='booked'; else cls+='avail';
+    if(isToday)cls+=' today';
+    c.className=cls; c.textContent=d;
+    if(bArr.length&&!isWE){const dot=document.createElement('div');dot.className='bdot';c.appendChild(dot);}
+    if(!isWE&&!isPast)c.onclick=()=>showDayDetail(ds,bArr);
+    grid.appendChild(c);
+  }
+  const mS=`${calY}-${String(calM+1).padStart(2,'0')}`;
+  const mAll=getAll().filter(b=>b.date.startsWith(mS)).sort((a,b)=>a.date===b.date?a.time.localeCompare(b.time):a.date.localeCompare(b.date));
+  const ml=document.getElementById('monthL');
+  if(!mAll.length){ml.innerHTML='<div class="bk-empty">// GEEN AFSPRAKEN DEZE MAAND //</div>';return;}
+  ml.innerHTML=mAll.map(b=>`<div class="bki"><div class="bkdot"></div><div class="bk-date">${fmt(b.date).slice(3)}</div><div class="bk-time">${b.time}</div><div class="bk-name">${b.name}</div><div class="bk-col">${b.collega||'-'}</div><div class="bk-email">${b.email}</div></div>`).join('');
+}
+function showDayDetail(ds,arr){
+  const dd=document.getElementById('dayD'),ddl=document.getElementById('dayDL'),ddt=document.getElementById('dayDT');
+  dd.style.display='block'; ddt.textContent=`// AFSPRAKEN OP ${fmt(ds)}`;
+  if(!arr.length){ddl.innerHTML='<div class="bk-empty">// GEEN AFSPRAKEN //</div>';return;}
+  ddl.innerHTML='<div class="tl">'+arr.sort((a,b)=>a.time.localeCompare(b.time)).map(b=>`
+    <div class="tli">
+      <div class="tl-lf"><div class="tl-dot"></div><div class="tl-tr"></div></div>
+      <div class="tl-bd"><div class="tl-time">${b.time}</div><div class="tl-nm">${b.name}</div>
+      <div class="tl-sub">${b.email}${b.collega?' | '+b.collega:''}${b.note?' | '+b.note:''}</div></div>
+    </div>`).join('')+'</div>';
+  dd.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── DOCENTEN ──────────────────────────────────────────────────────────────
+function renderDocs(){
+  const docs=getDocs(), el=document.getElementById('docGrid');
+  if(!docs.length){el.innerHTML='<div class="bk-empty" style="grid-column:1/-1">// GEEN DOCENTEN //</div>';return;}
+  const ini=n=>n.split(' ').filter(w=>w.length>2).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  el.innerHTML=docs.map(d=>`
+    <div class="doc-card">
+      <div class="doc-av" style="color:${d.color}">${ini(d.name)||'?'}</div>
+      <div class="doc-info">
+        <div class="doc-nm">${d.name}</div>
+        <div class="doc-rol" style="color:${d.color}">${d.rol}</div>
+        <div class="doc-vak">${d.vak}</div>
+        <span class="doc-badge" style="color:${d.color}">${d.rol.toUpperCase()}</span>
+      </div>
+    </div>`).join('');
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────
+function renderStats(){
+  const all=getAll();
+  document.getElementById('st1').textContent=all.length;
+  document.getElementById('st2').textContent=all.filter(b=>b.date>=todayS).length;
+  document.getElementById('st3').textContent=all.filter(b=>b.date<todayS).length;
+  document.getElementById('st4').textContent=new Set(all.map(b=>b.date)).size;
+  const nc={}; all.forEach(b=>{nc[b.name]=(nc[b.name]||0)+1;});
+  const sorted=Object.entries(nc).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const maxC=sorted[0]?.[1]||1;
+  const lb=document.getElementById('lb');
+  if(!sorted.length){lb.innerHTML='<div class="bk-empty">// GEEN DATA //</div>';}
+  else{lb.innerHTML=sorted.map(([nm,ct],i)=>`
+    <div class="lbi">
+      <div class="lb-rk ${i===0?'lbr1':i===1?'lbr2':i===2?'lbr3':'lbrn'}">${i+1}</div>
+      <div style="flex:1;"><div class="lb-nm">${nm}</div><div class="lb-bar"><div class="lb-bf" style="width:${(ct/maxC)*100}%"></div></div></div>
+      <div class="lb-ct">${ct}x</div>
+    </div>`).join('');}
+  const combos={};
+  all.filter(b=>b.collega).forEach(b=>{const k=[b.name,b.collega].sort().join(' + ');combos[k]=(combos[k]||0)+1;});
+  const comboS=Object.entries(combos).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const comboEl=document.getElementById('combos');
+  if(!comboS.length){comboEl.innerHTML='<div class="bk-empty">// NOG GEEN COMBOS //</div>';}
+  else{comboEl.innerHTML=comboS.map(([k,ct],i)=>`
+    <div class="lbi">
+      <div class="lb-rk lbrn">${i+1}</div>
+      <div style="flex:1;"><div class="lb-nm" style="font-size:12px;">${k}</div><div class="lb-bar"><div class="lb-bf" style="width:${(ct/comboS[0][1])*100}%;background:linear-gradient(90deg,var(--p),var(--c))"></div></div></div>
+      <div class="lb-ct">${ct}x</div>
+    </div>`).join('');}
+  const wd={MA:0,DI:0,WO:0,DO:0,VR:0};
+  all.forEach(b=>{const day=['','MA','DI','WO','DO','VR','',''][new Date(b.date).getDay()];if(day)wd[day]++;});
+  const maxWd=Math.max(...Object.values(wd),1);
+  document.getElementById('wdChart').innerHTML=Object.entries(wd).map(([k,v])=>`
+    <div class="ch-row"><div class="ch-lbl">${k}</div><div class="ch-wrap"><div class="ch-bar" style="width:${(v/maxWd)*100}%;background:linear-gradient(90deg,var(--r),var(--g))"></div></div><div class="ch-val">${v}</div></div>`).join('');
+  const hr={};
+  all.forEach(b=>{const h=b.time.split(':')[0]+'u';hr[h]=(hr[h]||0)+1;});
+  const hrS=Object.entries(hr).sort((a,b)=>a[0].localeCompare(b[0])).slice(0,10);
+  const maxHr=Math.max(...hrS.map(e=>e[1]),1);
+  document.getElementById('hrChart').innerHTML=!hrS.length?'<div class="bk-empty">// GEEN DATA //</div>':hrS.map(([k,v])=>`
+    <div class="ch-row"><div class="ch-lbl">${k}</div><div class="ch-wrap"><div class="ch-bar" style="width:${(v/maxHr)*100}%;background:linear-gradient(90deg,var(--p),var(--c))"></div></div><div class="ch-val">${v}</div></div>`).join('');
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────
+const FAQS=[
+  ['Kan ik mijn afspraak verzetten?','Neem contact op met de organisatie. Vermeld je referentienummer.'],
+  ['Kan ik met een collega tegelijk opnemen?','Ja! Kies bij het boeken de naam van je collega in het dropdown menu.'],
+  ['Wat moet ik meenemen?','Geen speciale apparatuur nodig. Kom op tijd en kleed je passend.'],
+  ['Hoelang duurt een tijdslot?','Standaard 30 tot 60 minuten. Boek meerdere slots als je meer tijd nodig hebt.'],
+  ['Wat als ik bevestiging niet zie?','Sla je referentienummer op. Neem anders contact op met de organisatie.']
+];
+function renderFAQ(){
+  document.getElementById('faqEl').innerHTML=FAQS.map(f=>`
+    <div style="border-bottom:1px solid rgba(255,255,255,.04);padding:14px 0;cursor:pointer;" onclick="const a=this.querySelector('.fa');a.style.display=a.style.display==='block'?'none':'block'">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:15px;color:#fff;font-weight:500;">${f[0]}</div>
+        <span style="color:rgba(255,215,0,.4);font-size:14px;">+</span>
+      </div>
+      <div class="fa" style="display:none;margin-top:9px;font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">${f[1]}</div>
+    </div>`).join('');
+}
+
+// ── ADMIN — credentials opgeslagen als SHA-256 hashes (nooit plaintext) ──
+// hash van "admin"        : 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+// hash van "rasputin2026" : zie hashStr() — nooit zichtbaar in broncode
+const ADMIN_H_U = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918';
+const ADMIN_H_P = '480ba0e896c3d5047632263d94a4922610569f9b8d211766543875d22950b64d'; // rasputin2026
+
+async function hashStr(s){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+let adminLogged=false;
+async function doAdminLogin(){
+  const u=document.getElementById('au').value.trim(),
+        p=document.getElementById('ap').value;
+  const [hu, hp] = await Promise.all([hashStr(u), hashStr(p)]);
+  if(hu===ADMIN_H_U && hp===ADMIN_H_P){
+    adminLogged=true;
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminDash').style.display='block';
+    renderAdmin(); renderAdminDocs(); populateSel('acF2'); updateAdminStats();
+    toast('WELKOM TERUG ADMIN');
+  }else{document.getElementById('aErr').textContent='ONJUISTE INLOGGEGEVENS';document.getElementById('ap').value='';}
+}
+function doLogout(){
+  adminLogged=false;
+  document.getElementById('adminLogin').style.display='block';
+  document.getElementById('adminDash').style.display='none';
+  document.getElementById('au').value='';document.getElementById('ap').value='';
+  document.getElementById('aErr').textContent='';toast('UITGELOGD');
+}
+function updateAdminStats(){
+  const all=getAll();
+  document.getElementById('ad1').textContent=all.length;
+  document.getElementById('ad2').textContent=all.filter(b=>b.date>=todayS).length;
+  document.getElementById('ad3').textContent=all.filter(b=>b.date<todayS).length;
+  document.getElementById('ad4').textContent=getDocs().length;
+}
+let pendingDelBooking = null;
+
+function renderAdmin(){
+  if(!adminLogged)return;
+  const q=(document.getElementById('aSearch')||{}).value||'';
+  let all=getAll().sort((a,b)=>a.date===b.date?a.time.localeCompare(b.time):a.date.localeCompare(b.date));
+  if(q)all=all.filter(b=>b.name.toLowerCase().includes(q.toLowerCase())||b.date.includes(q)||(b.email||'').toLowerCase().includes(q.toLowerCase()));
+  const el=document.getElementById('adminList');
+  if(!all.length){el.innerHTML='<div class="bk-empty">// GEEN AFSPRAKEN GEVONDEN //</div>';return;}
+  el.innerHTML=all.map(b=>`
+    <div class="bki" id="bkrow_${b.id}">
+      <div class="bkdot"></div>
+      <div class="bk-date">${fmt(b.date).slice(3)}</div>
+      <div class="bk-time">${b.time}</div>
+      <div class="bk-name">${b.name}</div>
+      <div class="bk-col">${b.collega||'-'}</div>
+      <div class="bk-email">${b.email}</div>
+      <div id="bkdelbtn_${b.id}" style="display:flex;gap:5px;align-items:center;flex-shrink:0;">
+        <button class="bk-del" onclick="askDelBooking(${b.id})">✕</button>
+      </div>
+    </div>`).join('');
+}
+
+function askDelBooking(id){
+  if(pendingDelBooking !== null){
+    const prev = document.getElementById('bkdelbtn_'+pendingDelBooking);
+    if(prev) prev.innerHTML=`<button class="bk-del" onclick="askDelBooking(${pendingDelBooking})">✕</button>`;
+  }
+  pendingDelBooking = id;
+  const btn = document.getElementById('bkdelbtn_'+id);
+  if(!btn) return;
+  btn.innerHTML=`
+    <span style="font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,0,68,.7);letter-spacing:1px;">ZEKER?</span>
+    <button class="bk-del" style="border-color:var(--r);color:var(--r);background:rgba(255,0,68,.12);" onclick="confirmDelBooking(${id})">JA</button>
+    <button class="bk-del" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.4);" onclick="cancelDelBooking(${id})">NEE</button>`;
+}
+
+function cancelDelBooking(id){
+  pendingDelBooking = null;
+  const btn = document.getElementById('bkdelbtn_'+id);
+  if(btn) btn.innerHTML=`<button class="bk-del" onclick="askDelBooking(${id})">✕</button>`;
+}
+
+function confirmDelBooking(id){
+  pendingDelBooking = null;
+  saveAll(getAll().filter(b => String(b.id) !== String(id)));
+  renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('AFSPRAAK VERWIJDERD');
+}
+
+function delBooking(id){ confirmDelBooking(id); } // fallback
+
+function adminClearAll(){
+  // Toon inline bevestiging in de knop zelf
+  const btn = document.querySelector('[onclick="adminClearAll()"]');
+  if(btn && btn.dataset.confirming !== 'yes'){
+    btn.dataset.confirming = 'yes';
+    const orig = btn.innerHTML;
+    btn.innerHTML = '⚠ ECHT ALLES? KLIK NOGMAALS';
+    btn.style.borderColor = 'var(--r)';
+    btn.style.color = 'var(--r)';
+    setTimeout(()=>{ btn.innerHTML=orig; btn.style.borderColor=''; btn.style.color=''; btn.dataset.confirming=''; }, 3000);
+    return;
+  }
+  if(btn){ btn.dataset.confirming=''; }
+  saveAll([]); renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('ALLE AFSPRAKEN GEWIST');
+}
+function adminAddBooking(){
+  const date=document.getElementById('adF2').value,time=document.getElementById('atF2').value,
+        name=document.getElementById('anF2').value.trim(),email=document.getElementById('aeF2').value.trim(),
+        collega=document.getElementById('acF2').value,note=document.getElementById('anoF2').value.trim();
+  const errEl=document.getElementById('adErr2'); errEl.textContent='';
+  if(!date||!time||!name){errEl.textContent='DATUM, TIJD EN NAAM ZIJN VERPLICHT';return;}
+  if(isBooked(date,time)){errEl.textContent='DIT TIJDSTIP IS AL BEZET';return;}
+  saveOne({date,time,name,email,collega,note,id:Date.now()});
+  ['adF2','anF2','aeF2','anoF2'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('atF2').value='09:00';
+  renderAdmin(); updateAdminStats(); updateHStats(); updateCD(); toast('AFSPRAAK TOEGEVOEGD');
+}
+let pendingDelDoc = null; // ID van docent die verwijderd gaat worden
+
+function renderAdminDocs(){
+  const docs=getDocs(), el=document.getElementById('adminDocList');
+  if(!docs.length){el.innerHTML='<div class="bk-empty">// GEEN DOCENTEN //</div>';return;}
+  el.innerHTML=docs.map(d=>`
+    <div class="bki" id="docrow_${d.id}">
+      <div class="bkdot" style="background:${d.color};box-shadow:0 0 7px ${d.color};animation:none;"></div>
+      <div class="bk-name">${d.name}</div>
+      <div class="bk-col" style="color:${d.color};min-width:100px;">${d.rol}</div>
+      <div class="bk-email">${d.vak}</div>
+      <div id="delbtn_${d.id}" style="display:flex;gap:5px;align-items:center;flex-shrink:0;">
+        <button class="bk-del" onclick="askDelDoc(${d.id})">✕ WISSEN</button>
+      </div>
+    </div>`).join('');
+}
+
+function askDelDoc(id){
+  // Reset eventuele eerdere bevestigingsprompt
+  if(pendingDelDoc !== null){
+    const prev = document.getElementById('delbtn_'+pendingDelDoc);
+    if(prev) prev.innerHTML=`<button class="bk-del" onclick="askDelDoc(${pendingDelDoc})">✕ WISSEN</button>`;
+  }
+  pendingDelDoc = id;
+  const btn = document.getElementById('delbtn_'+id);
+  if(!btn) return;
+  btn.innerHTML=`
+    <span style="font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,0,68,.7);letter-spacing:1px;">ZEKER?</span>
+    <button class="bk-del" style="border-color:var(--r);color:var(--r);background:rgba(255,0,68,.12);" onclick="confirmDelDoc(${id})">JA</button>
+    <button class="bk-del" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.4);" onclick="cancelDelDoc(${id})">NEE</button>`;
+}
+
+function cancelDelDoc(id){
+  pendingDelDoc = null;
+  const btn = document.getElementById('delbtn_'+id);
+  if(btn) btn.innerHTML=`<button class="bk-del" onclick="askDelDoc(${id})">✕ WISSEN</button>`;
+}
+
+function confirmDelDoc(id){
+  pendingDelDoc = null;
+  saveDocs(getDocs().filter(d => String(d.id) !== String(id)));
+  renderAdminDocs(); renderDocs(); updateAdminStats();
+  populateSel('colF'); populateSel('acF2');
+  toast('DOCENT VERWIJDERD');
+}
+
+function adminAddDoc(){
+  const name=document.getElementById('dnF').value.trim(),vak=document.getElementById('dvF').value.trim(),
+        rol=document.getElementById('drF').value.trim(),color=document.getElementById('dbF').value;
+  const errEl=document.getElementById('dErr'); errEl.textContent='';
+  if(!name||!rol){errEl.textContent='NAAM EN ROL ZIJN VERPLICHT';return;}
+  const docs=getDocs();
+  docs.push({id:Date.now(),name,vak:vak||'-',rol,color});
+  saveDocs(docs);
+  ['dnF','dvF','drF'].forEach(id=>document.getElementById(id).value='');
+  renderAdminDocs(); updateAdminStats(); populateSel('colF'); populateSel('acF2'); toast('DOCENT TOEGEVOEGD');
+}
+
+function delDoc(id){ confirmDelDoc(id); } // fallback
+
+// ── CONFETTI ──────────────────────────────────────────────────────────────
+const cst=document.createElement('style');
+cst.textContent='@keyframes conffall{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1;}100%{transform:translateY(300px) rotate(720deg) scale(.2);opacity:0;}}';
+document.head.appendChild(cst);
+function boom(){
+  const colors=['#ffd700','#ff0044','#00ffe7','#c84bff','#1DB954','#fff'];
+  for(let i=0;i<80;i++){
+    const p=document.createElement('div');
+    const s=4+Math.random()*8, c=colors[~~(Math.random()*colors.length)];
+    p.style.cssText=`position:fixed;z-index:9996;width:${s}px;height:${s}px;background:${c};border-radius:${Math.random()>.5?'50%':'2px'};left:${20+Math.random()*60}%;top:${40+Math.random()*20}%;pointer-events:none;box-shadow:0 0 ${s}px ${c};animation:conffall ${.8+Math.random()*1.5}s ease forwards;`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),2500);
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+populateSel('colF');
+renderFAQ();
+renderDocs();
+</script>
+</body>
+</html>
